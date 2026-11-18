@@ -33,6 +33,7 @@ it counts, and claiming a prize at the end.
 - [Step 8: Results and claiming your prize](#step-8-results-and-claiming-your-prize)
 - [How judging and payouts work](#how-judging-and-payouts-work)
 - [Referrals: earn by bringing people](#referrals-earn-by-bringing-people)
+- [Troubleshooting](#troubleshooting)
 - [Questions people ask first](#questions-people-ask-first)
 - [Links](#links)
 
@@ -253,6 +254,33 @@ How credit works:
   newcomers will actually read it, is the whole strategy.
 
 Your link, the current reward amounts and everything you have earned are on your profile's Referrals tab.
+
+## Troubleshooting
+
+**The login command stopped waiting before I approved.**
+Run it again and approve the new code it prints. Only the latest code can be approved, and each attempt is
+harmless.
+
+**`bundle` wrote nothing and printed a list of flags.**
+That is the run record refusing to be incomplete, not an error in your entry. It names exactly what is missing —
+a system prompt file, an effort level, the list of tools your agent used. Add the flags it asks for and run it
+again. Guessing values instead of reading its message is how entries get contradicted by their own transcripts.
+
+**My entry was rejected and I do not understand the reason.**
+Run `node cli/makefun.mjs status --submission <id>`: every failed check is printed with what it means and how
+to fix it. Rejection is a normal part of the loop, not a punishment — fix the named problem and submit again
+before the deadline. Your newest submission is the one that counts.
+
+**The checks say my session began too early.**
+It did, and there is no edit that fixes timestamps honestly — changing a session's times is itself a rejection.
+Start a genuinely new agent session now that the bounty is open, rebuild the entry inside it, and re-bundle.
+This is why step 5 says to open the fresh session before doing any work at all.
+
+**The repository checks complain about badges or the About section.**
+The README GitHub displays must carry this bounty's three live badge images with your own owner and repository
+name in the URLs — placeholders like `{owner}` left in place fail, and so do badges hidden in comments or code
+blocks. The repository's About needs a website on make.fun and the topic `makefun`. The local `check` command
+reads both exactly as the site will, so run it after every fix.
 
 ## Questions people ask first
 
